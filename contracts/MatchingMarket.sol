@@ -84,7 +84,7 @@ contract MatchingMarket is MatchingEvents, SimpleMarket {
         * @param           tokenA is a token user wants trade
         * @param           tokenB is another token user wants to trade against tokenB
      */
-    modifier isValidPoolTokenPair(IERC20 tokenA, IERC20 tokenB) {
+    modifier isValidPoolTokenPair(IERC20 tokenA, IERC20 tokenB) virtual {
         require(
             hPoolManager.isHPoolToken(address(tokenA)) && address(tokenB) == address(dustToken) ||
             hPoolManager.isHPoolToken(address(tokenB)) && address(tokenA) == address(dustToken) ||
